@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "2b95b4d6-5840-4f63-b898-dba3079142bb",
+		"name": "BellIntegrator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Find all author books by book name (ru)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/book/search/ru/Книга 1 Автор_1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"book",
+						"search",
+						"ru",
+						"Книга 1 Автор_1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find all author books by book name (en)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/book/search/en/Book 1 Author_1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"book",
+						"search",
+						"en",
+						"Book 1 Author_1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find all author books by book name (de)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/book/search/de/Buchen 1 Autor_1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"book",
+						"search",
+						"de",
+						"Buchen 1 Autor_1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get book by id (en)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/en/book/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"en",
+						"book",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get book by id (ru)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/ru/book/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ru",
+						"book",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get book by id (de)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/de/book/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"de",
+						"book",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Author create",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Name",
+						"value": "Some Author name",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Some new author\",\n    \"translations\":[\n        {\"locale\":\"ru\",\"context\":\"Некоторый новый автор\"}\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/author/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"author",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Book create",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Some book name 1\",\n    \"translations\":[\n        {\"locale\":\"ru\",\"context\":\"Некоторая книга 1\"},\n        {\"locale\":\"de\",\"context\":\"Some buchen name 1\"}\n    ],\n    \"author\": {\n        \"id\":3\n        }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/book/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"book",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

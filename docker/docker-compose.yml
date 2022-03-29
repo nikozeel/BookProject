@@ -1,0 +1,25 @@
+version: "3"
+services:
+  book_project_nginx:
+    container_name: book_project_nginx
+    build: .
+    image: book_project_nginx
+    ports:
+      - '80:80'
+    volumes:
+        - "../BookProject:/var/www/BookProject"
+        - "./etc/supervisor/conf.d/startup.conf:/etc/supervisor/conf.d/startup.conf"
+        - "./etc/supervisor/supervisord.conf:/etc/supervisor/supervisord.conf"
+        - "./etc/nginx/sites-available-default:/etc/nginx/sites-available/default"
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: book_project_postgres
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: dev
+      POSTGRES_DB: dev
+      POSTGRES_USER: dev
+    ports:
+      - '5432:5432'
